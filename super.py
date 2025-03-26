@@ -2,7 +2,7 @@ import sys
 import os
 sys.path.append(os.path.join(os.path.dirname(__file__), "gen_py"))
 
-from gen_py.superNode.SuperNode import Processor  # Correct import for superNode
+from gen_py.superNode.SuperNode import Processor 
 from thrift.transport import TSocket, TTransport
 from thrift.protocol import TBinaryProtocol
 from thrift.server import TServer
@@ -65,6 +65,8 @@ class superNodeHandler:
         
         
         # I need change this to a try / except block
+        # print("RECORDS -->", self.records)
+
         if len(self.activeNodes) == 0:
             return KeyError("ERROR NO ACTIVE NODES")
         randomNode = random.randint(0, len(self.records)-1)
